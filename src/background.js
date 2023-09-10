@@ -33,7 +33,7 @@ chrome.runtime.onInstalled.addListener(function() {
         // Then, decide whether to open a tab with popup.html based on the value of micPermissionGranted
         if (!result.micPermissionGranted) {
         chrome.tabs.create({
-            url: chrome.runtime.getURL("popup.html"),
+            url: chrome.runtime.getURL("src/popup.html"),
             active: true
         });
         } 
@@ -96,15 +96,16 @@ chrome.runtime.onMessage.addListener(async function(request) {
             console.log("received")
             const message = request.message;
 
-            //TODO: why is the output empty text? ??
 
-            // Do some work...
-            // TODO use message data
+            //ISSUE: this also returns empty text
+            /*
             let transcriber = await pipeline('automatic-speech-recognition', 'xenova/whisper-tiny');
             let output = await transcriber(message.audio,  { chunk_length_s: 30, stride_length_s: 5 })
             console.log(output)
             chrome.runtime.sendMessage({ from: "inject", message: output}); 
-            /*
+            */
+           
+            //ISSUE: why is the output empty text? ??
             const output = await transcribe(
                 message.audio,
                 message.model,
@@ -117,7 +118,6 @@ chrome.runtime.onMessage.addListener(async function(request) {
             console.log("complete")
             console.log(output)
             //chrome.runtime.sendMessage({ from: "inject", message: output.text}); 
-            */
             break
     }
     
@@ -182,7 +182,7 @@ const transcribe = async (
 
     // Load transcriber model
     let transcriber = await p.getInstance((data) => {
-        //console.log("checkup")
+        console.log("checkup")
         console.log(data)
     });
 

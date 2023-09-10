@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Attach event listener to the record button
     recordButton.addEventListener('click', handleRecording);
-  });
+});
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'v' && !vToggled) {
@@ -106,11 +106,11 @@ document.addEventListener('keyup', (event) => {
 
 chrome.commands.onCommand.addListener((command) => {
     if (command === 'press_record') {
-      if (!vToggled) {
+        if (!vToggled) {
         handleRecording(true);
         vToggled = true;
-      } 
+        } 
     }
-  });
+});
 
 
