@@ -8,7 +8,7 @@
         "https://chat.openai.com/*"
     ],
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "src/popup.html"
     },
     "background": {
       "service_worker": "dist/background.bundle.js"
@@ -22,7 +22,7 @@
             "description": "Opens my extension"
           }
     },
-    "options_page": "options.html",
+    "options_page": "src/options.html",
     "content_security_policy": {
       "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
     }
