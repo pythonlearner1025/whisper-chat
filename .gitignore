@@ -1,0 +1,7 @@
+dist/*
+misc/*
+node_modules/*
+audios/*
+
+*.env
+
