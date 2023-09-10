@@ -4,4 +4,4 @@ node_modules/*
 audios/*
 
 *.env
-
+*.DS_Store
